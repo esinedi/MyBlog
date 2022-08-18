@@ -1,0 +1,22 @@
+@mixin fixed-center {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin wh-transition {
+  box-sizing: border-box;
+  transition-property: width, height, margin;
+  transition-duration: 1s, 1s, 1s;
+}
+
+$mainColor: #6889ef;
+
+.bg_size {
+  font-size: 30px;
+}
+
+.med_size {
+  font-size: 26px;
+}
