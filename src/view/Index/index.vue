@@ -1,8 +1,11 @@
 <script setup lang="ts">
+import Header from '@/components/Header/index.vue'
 </script>
 
 <template>
-  <div class="home">123
+  <div class="Index">
+    <Header></Header>
+    <router-view></router-view>
   </div>
 </template>
 

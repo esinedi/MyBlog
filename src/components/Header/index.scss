@@ -1,0 +1,135 @@
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s;
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
+}
+.header {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  background: url("@/assets/img/header-bg.jpg") no-repeat;
+  background-position-x: center;
+  .header-bg {
+    @include zIndex0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: black;
+    opacity: 0;
+  }
+  nav {
+    width: 100%;
+    position: absolute;
+    top: 10px;
+    height: 77px;
+    color: white;
+    line-height: 77px;
+    font-size: 20px;
+    transition: all 0.5s;
+    .site_header {
+      max-width: 1400px;
+      height: 100%;
+      margin: 0 auto;
+      padding: 0 2em;
+      .pc_menu {
+        position: relative;
+        float: left;
+        display: flex;
+        flex-direction: row;
+        @include zIndex2;
+        li {
+          padding: 0 2em;
+          a {
+            color: white;
+            text-decoration: none;
+            position: relative;
+            div {
+              position: absolute;
+              top: -50%;
+              left: -50%;
+              width: 0%;
+              height: 200%;
+              background-color: rgba(255, 255, 255, 0);
+              transition: all 0.3s;
+            }
+            &:hover {
+              div {
+                width: 200%;
+                background-color: rgba(255, 255, 255, 0.1);
+              }
+            }
+          }
+        }
+      }
+      .mobile_menu {
+        height: 100%;
+        position: relative;
+        float: right;
+        padding: 0 1em;
+        @include fixed-center;
+        li {
+          padding: 0em 0.5em;
+          @include zIndex2;
+          @include fixed-center;
+          i,
+          div {
+            cursor: pointer;
+          }
+          div {
+            height: min-content;
+          }
+        }
+        .mobile_btn {
+          font-size: 2em;
+          @include zIndex4;
+        }
+      }
+    }
+  }
+  .header_main {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 1;
+    @include zIndex1;
+    @include fixed-center;
+    p {
+      color: white;
+      font-size: 4em;
+      font-weight: bold;
+      letter-spacing: 3px;
+      transition: font 1s;
+    }
+  }
+}
+@media screen and (max-width: 1260px) {
+  .header {
+    nav {
+      font-size: 18px;
+    }
+  }
+}
+@media screen and (max-width: 960px) {
+  .header {
+    nav {
+      font-size: 16px;
+    }
+  }
+}
+@media screen and (max-width: 768px) {
+  .pc_menu {
+    display: none !important;
+  }
+  .mobile_menu {
+    font-size: 30px !important;
+    .mobile_name {
+      display: none !important;
+    }
+  }
+}

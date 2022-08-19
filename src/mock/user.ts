@@ -16,7 +16,8 @@ const userLogin = (user: any) => {
     return false
   }
   if(body.username === 'admin' && body.pwd == 'admin'){
-    router.push('home')
+    window.sessionStorage.setItem('token', JSON.stringify(body))
+    router.push('index')
     return true
   }else{
     ElMessage.error('账号或者密码错误！')

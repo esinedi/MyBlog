@@ -1,3 +1,4 @@
+/* 初始化 */
 :root {
   font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
   font-size: 16px;
@@ -96,4 +97,9 @@ html,body,#app{
   }
 }
 
+/* 杂项样式 */
+/* 头部颜色 */
+.pc_menu_a_active {
+  color: yellow !important;
+}
 

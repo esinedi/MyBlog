@@ -5,8 +5,8 @@ import { userLogin } from '@/api/user'
 import { ref, Ref, toRaw } from 'vue'
 // 导入方法
 import { useMousePointer } from '@/hooks/useMouseAdk.ts'
-import { useMouse } from '@vueuse/core'
-const { x, y } = useMouse()
+import { useLoginprop } from '@/hooks/login.ts'
+const { x, y } = useLoginprop()
 const user = ref({
   username: '',
   pwd: ''

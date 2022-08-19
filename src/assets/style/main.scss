@@ -11,6 +11,30 @@
   transition-duration: 1s, 1s, 1s;
 }
 
+// 等级混入
+@mixin zIndex0 {
+  z-index: 0;
+}
+@mixin zIndex1 {
+  z-index: 1;
+}
+@mixin zIndex2 {
+  z-index: 2;
+}
+@mixin zIndex3 {
+  z-index: 3;
+}
+@mixin zIndex4 {
+  z-index: 4;
+}
+@mixin zIndex5 {
+  z-index: 5;
+}
+@mixin zIndex6 {
+  z-index: 6;
+}
+
+// 颜色
 $mainColor: #6889ef;
 
 .bg_size {

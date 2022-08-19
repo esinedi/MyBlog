@@ -2,7 +2,7 @@
 </script>
 
 <template>
-  <div class="home">123
+  <div class="About">321
   </div>
 </template>
 
