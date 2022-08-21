@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { watch } from 'vue'
-import { useRouteStore } from '@/store/routes.ts'
+import { useRouteStore } from '../../store/routes'
 import { useRouter } from 'vue-router'
 import { onMounted, onUnmounted } from 'vue'
 
@@ -16,10 +16,10 @@ watch(() => router.currentRoute.value.path, (toPtah) => {
 },{ immediate: false, deep: true })
 
 onMounted(() => {
-  document.querySelector('body').style.overflow = 'hidden'
+  (document.querySelector('body') as HTMLBodyElement).style.overflow = 'hidden'
 })
 onUnmounted(() => {
-  document.querySelector('body').style.overflow = 'inherit'
+  (document.querySelector('body') as HTMLBodyElement).style.overflow = 'inherit'
 })
 </script>
 

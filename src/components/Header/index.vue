@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref, watch } from 'vue'
-import { useRouteStore } from '@/store/routes'
+import { useRouteStore } from '../../store/routes'
 import { useRouter } from 'vue-router'
 import FixedHeader from '@/components/FixedHeader/index.vue'
 import Quit from '@/components/Quit/index.vue'
@@ -12,7 +12,6 @@ const { routeDate } = useRouteStore()
 const opacityOne = ref(1)
 const opacityTwo = ref(0)
 const { username } = JSON.parse(window.sessionStorage.getItem('token') as string)
-const visible = ref(false)
 
 // 监控路由变化
 watch(() => router.currentRoute.value.path, async (toPtah) => {
@@ -36,10 +35,6 @@ const getWinHeight = () => {
 }
 getWinHeight()
 window.addEventListener('scroll', getWinHeight , true)
-// quit 组件是否关闭
-const visibleShow = () => {
-  visible.value = false
-}
 </script>
 
 <template>
@@ -50,10 +45,10 @@ const visibleShow = () => {
     <nav>
       <div class="site_header">
         <ul class="mobile_menu">
-          <li class="mobile_name" @mouseenter="visible = true" @mouseleave="visible = false">
-            <el-tooltip class="name_tooltip" placement="bottom" effect="light">
+          <li class="mobile_name">
+            <el-tooltip :show-arrow="false" class="name_tooltip" placement="bottom" effect="light">
               <template v-slot:content>
-                <Quit @visibleShow="visibleShow"></Quit>
+                <Quit></Quit>
               </template>
               <div>
                 欢迎您，{{ username }}
@@ -90,5 +85,15 @@ const visibleShow = () => {
 <style>
 .el-popper {
   margin-top: -20px !important;
+}
+.el-popper.is-light{
+  padding: 6px 12px;
+  border: 3px solid black;
+  border-radius: 10px;
+}
+
+.el-popper.el-popper__arrow::before {
+  background: linear-gradient(45deg, #b2e68d, #bce689);
+  right: 0;
 }
 </style>

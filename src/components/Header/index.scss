@@ -10,6 +10,7 @@
   height: 100vh;
   position: relative;
   background: url("@/assets/img/header-bg.jpg") no-repeat;
+  background-size: cover;
   background-position-x: center;
   .header-bg {
     @include zIndex0;
@@ -123,13 +124,25 @@
   }
 }
 @media screen and (max-width: 768px) {
-  .pc_menu {
-    display: none !important;
-  }
-  .mobile_menu {
-    font-size: 30px !important;
-    .mobile_name {
-      display: none !important;
+  .header {
+    nav {
+      .site_header {
+        padding: 0;
+        .pc_menu {
+          display: none;
+        }
+        .mobile_menu {
+          padding: 0 0.3em;
+          font-size: 30px;
+          .mobile_btn {
+            font-size: 1.5em;
+            padding: 0 0.3em;
+          }
+          .mobile_name {
+            display: none;
+          }
+        }
+      }
     }
   }
 }
