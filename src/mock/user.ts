@@ -24,5 +24,19 @@ const userLogin = (user: any) => {
     return true
   }
 }
-// 传入数据要用 post
+
+// 用户信息
+const userDetails = () => {
+  return {
+    data: {
+      id: 10086,
+      username: 'admin',
+      headImg: 'src/assets/img/header-bg.jpg',
+      section: '你好啊，哇咔咔',
+    }
+  }
+}
+
+// 有传入数据要用 post
 Mock.mock('/user/login', 'post', userLogin) 
+Mock.mock('/user/details', 'get', userDetails) 

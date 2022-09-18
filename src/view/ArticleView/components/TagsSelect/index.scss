@@ -1,0 +1,29 @@
+.tagsSelect{
+  @include flex-row;
+  @include flex-aCenter;
+  margin-bottom: 10px;
+  .tags_title{
+    @include labelSize;
+    @include fontStart(1.5em);
+  }
+  .tags{
+    @include flex-row;
+    @include flex-aCenter;
+    flex: 1;
+    flex-wrap: wrap;
+    .tag{
+      padding: 5px 10px;
+      color: $mainColor;
+      background-color: rgb(240, 243, 253);
+      border: 1px solid rgb(180, 196, 247);
+      border-radius: 3px;
+      margin-right: 10px;
+      cursor: pointer;
+      &.active{
+        color: var(--el-color-white);
+        background-color: $mainColor;
+        border-color: rgb(87, 114, 195);
+      }
+    }
+  }
+}

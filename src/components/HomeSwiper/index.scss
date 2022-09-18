@@ -1,0 +1,33 @@
+.homeSwiper {
+  border: 4px solid $mainColor;
+  border-radius: 10px;
+  padding: 3px;
+  .swiper_item {
+    width: 100%;
+    height: 100%;
+    background-size: cover !important;
+    background-position: 40% !important;
+    position: relative;
+    .swiper_title {
+      position: absolute;
+      left: 30px;
+      bottom: 30px;
+      color: white;
+      .bg_title {
+        @include fontStart(1.5em, bold);
+        line-height: 1.3em;
+      }
+      .med_title {
+        @include fontStart(1.2em);
+        line-height: 2.2em;
+      }
+      .tag_title {
+        display: flex;
+        margin-top: 3px;
+        .el-tag {
+          margin-right: 10px;
+        }
+      }
+    }
+  }
+}

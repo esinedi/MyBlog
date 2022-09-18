@@ -78,6 +78,11 @@ html,body,#app{
   height: 100%;
 }
 
+#app{
+  background-color: rgb(236, 236, 236);
+}
+
+
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
@@ -85,9 +90,17 @@ html,body,#app{
   }
 }
 
+/* 宽度变化字体设置 */
+
+@media screen and (max-width: 1400px) {
+  body{
+    font-size: 15px;
+  }
+}
+
 @media screen and (max-width: 1200px) {
   body{
-    font-size: 14px;
+    font-size: 13px;
   }
 }
 
@@ -96,10 +109,3 @@ html,body,#app{
     font-size: 12px;
   }
 }
-
-/* 杂项样式 */
-/* 头部颜色 */
-.pc_menu_a_active {
-  color: yellow !important;
-}
-

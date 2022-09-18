@@ -4,6 +4,7 @@ import { useRouteStore } from '../../store/routes'
 import { useRouter } from 'vue-router'
 import FixedHeader from '@/components/FixedHeader/index.vue'
 import Quit from '@/components/Quit/index.vue'
+import Logo from '@/components/Logo/index.vue'
 
 // 监控路由变化
 const router = useRouter()
@@ -19,12 +20,6 @@ watch(() => router.currentRoute.value.path, async (toPtah) => {
       routeNew: toPtah          
     })
 },{ immediate: true, deep: true })
-// 组件是否渲染
-const mobileShow = () => {
-  routeColor.$patch({
-    mobileOrShow: !routeColor.mobileOrShow      
-  })
-}
 // 监控页面离顶部的距离
 const getWinHeight = () => {
   routeColor.$patch({
@@ -43,39 +38,46 @@ window.addEventListener('scroll', getWinHeight , true)
       <FixedHeader v-if="routeColor.mobileOrShow"></FixedHeader>
     </transition>
     <nav>
-      <div class="site_header">
-        <ul class="mobile_menu">
-          <li class="mobile_name">
-            <el-tooltip :show-arrow="false" class="name_tooltip" placement="bottom" effect="light">
-              <template v-slot:content>
-                <Quit></Quit>
-              </template>
-              <div>
-                欢迎您，{{ username }}
-              </div>
-            </el-tooltip>
-          </li>
-          <li class="mobile_btn">
-            <el-icon @click="mobileShow()">
-              <Close v-if="routeColor.mobileOrShow" />
-              <MoreFilled v-else/>
-            </el-icon>
-          </li>
-        </ul>
-        <ul class="pc_menu">
-          <li v-for="item in routeDate" :key="item.id">
-            <router-link :to="item.link" :class="routeColor.routeNew === item.link ? 'pc_menu_a_active' : '' ">
-              <span>{{ item.name }}</span>
-              <div></div>
-            </router-link>
-          </li>
-        </ul>
-      </div>
+      <el-row :gutter="10">
+        <el-col :span="4">
+          <div class="logo_title">
+            <Logo></Logo>
+            <span class="logo_name">Blog</span>
+          </div>
+        </el-col>
+        <el-col :span="16">
+          <ul class="pc_menu">
+            <li v-for="item in routeDate" :key="item.id">
+              <router-link :to="item.link" :class="routeColor.routeNew === item.link ? 'pc_menu_a_active' : '' ">
+                <span>{{ item.name }}</span>
+                <div></div>
+              </router-link>
+            </li>
+          </ul>
+        </el-col>
+        <el-col :span="4">
+          <ul class="mobile_menu">
+            <li class="mobile_name">
+              <el-tooltip :show-arrow="false" class="name_tooltip" placement="bottom" effect="light">
+                <template v-slot:content>
+                  <Quit></Quit>
+                </template>
+                <div>
+                  欢迎您:{{ username }}
+                </div>
+              </el-tooltip>
+            </li>
+            <li class="mobile_btn">
+              <!-- FixedHeader 组件渲染方法 routeColor.mobileShow() -->
+              <el-icon @click="routeColor.mobileShow()">
+                <Close v-if="routeColor.mobileOrShow" />
+                <MoreFilled />
+              </el-icon>
+            </li>
+          </ul>
+        </el-col>
+      </el-row>
     </nav>
-    <div class="header-bg" :style="{ opacity: opacityTwo }"></div>
-    <div class="header_main" :style="{ opacity: opacityOne }">
-      <p>个人博客</p>
-    </div>
   </div>
 </template>
 
@@ -84,7 +86,7 @@ window.addEventListener('scroll', getWinHeight , true)
 </style>
 <style>
 .el-popper {
-  margin-top: -20px !important;
+  margin-top: 0px !important;
 }
 .el-popper.is-light{
   padding: 6px 12px;

@@ -18,10 +18,18 @@ export function getGoodsList (query: any) {
 }
 
 // 用户登录接口
-export function userLogin (query: user){
+export function userLogin(query: user) {
   return service({
     method:'post',
     url:'/user/login',
     data:query
+  })
+}
+
+// 用户信息
+export function userDetails() {
+  return service({
+    method: 'get',
+    url: '/user/details',
   })
 }

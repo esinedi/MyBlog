@@ -14,9 +14,14 @@ export const useRouteStore = defineStore('route', {
         },
         {
           id: 2,
+          link: '/index/article',
+          name: '文章'
+        },
+        {
+          id: 3,
           link: '/index/about',
           name: '关于'
-        },
+        }
       ],
       // 离顶部的高度
       winScrollHeight: 0,
@@ -28,6 +33,9 @@ export const useRouteStore = defineStore('route', {
     // 这里写方法action
     getWinHeight() {
       this.winScrollHeight = document.documentElement.scrollTop
+    },
+    mobileShow(){
+      this.mobileOrShow = !this.mobileOrShow
     }
   },
   getters: {

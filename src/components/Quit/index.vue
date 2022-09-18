@@ -18,7 +18,7 @@ const quit = () => {
           link
           >
           <el-icon :style="{ marginRight: '10px' }"><CircleClose /></el-icon>
-          退出登录
+            退出登录
           </el-button>
       </el-form-item>
     </el-form>

@@ -2,50 +2,49 @@
 .fade-leave-active {
   transition: opacity 0.5s;
 }
-.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+.fade-enter,
+.fade-leave-to {
   opacity: 0;
 }
 .header {
-  width: 100%;
-  height: 100vh;
   position: relative;
-  background: url("@/assets/img/header-bg.jpg") no-repeat;
-  background-size: cover;
-  background-position-x: center;
-  .header-bg {
-    @include zIndex0;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: black;
-    opacity: 0;
-  }
+  z-index: 99999;
   nav {
     width: 100%;
-    position: absolute;
-    top: 10px;
     height: 77px;
-    color: white;
-    line-height: 77px;
-    font-size: 20px;
+    color: block;
     transition: all 0.5s;
-    .site_header {
-      max-width: 1400px;
+    background-color: white;
+    box-shadow: var(--el-box-shadow);
+    position: fixed;
+    top: 0;
+    @include fontStart(1.2em);
+    .el-row {
+      width: 100%;
       height: 100%;
-      margin: 0 auto;
-      padding: 0 2em;
+      .logo_title {
+        @include flex-row;
+        @include flex-aCenter;
+        padding-left: 2em;
+        .logo_name {
+          @include fontStart(1.5em, bold);
+          margin-left: 0.5em;
+          font-style: italic;
+          font-weight: bold;
+          color: $mainColor;
+          letter-spacing: 2px;
+        }
+      }
       .pc_menu {
-        position: relative;
-        float: left;
         display: flex;
         flex-direction: row;
-        @include zIndex2;
+        height: 100%;
         li {
           padding: 0 2em;
+          @include flex-row;
+          @include flex-center;
           a {
-            color: white;
+            color: block;
             text-decoration: none;
             position: relative;
             div {
@@ -69,13 +68,14 @@
       .mobile_menu {
         height: 100%;
         position: relative;
-        float: right;
-        padding: 0 1em;
-        @include fixed-center;
+        padding: 0 0.2em;
+        @include flex-row;
+        @include flex-center;
         li {
-          padding: 0em 0.5em;
-          @include zIndex2;
-          @include fixed-center;
+          height: 100%;
+          padding: 0em 0.3em;
+          @include flex-row;
+          @include flex-center;
           i,
           div {
             cursor: pointer;
@@ -84,59 +84,63 @@
             height: min-content;
           }
         }
+        .el-tooltip__trigger {
+          height: 100%;
+          @include flex-row;
+          @include flex-center;
+        }
         .mobile_btn {
-          font-size: 2em;
-          @include zIndex4;
+          display: none;
         }
       }
     }
   }
-  .header_main {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    opacity: 1;
-    @include zIndex1;
-    @include fixed-center;
-    p {
-      color: white;
-      font-size: 4em;
-      font-weight: bold;
-      letter-spacing: 3px;
-      transition: font 1s;
+}
+@media screen and (max-width: 1300px) {
+  .header {
+    nav {
+      .el-row {
+        .mobile_menu {
+          padding: 0;
+          li {
+            padding: 0 0.3em;
+          }
+        }
+      }
     }
   }
 }
-@media screen and (max-width: 1260px) {
+@media screen and (max-width: 1000px) {
   .header {
     nav {
-      font-size: 18px;
-    }
-  }
-}
-@media screen and (max-width: 960px) {
-  .header {
-    nav {
-      font-size: 16px;
+      .el-row {
+        .logo_title {
+          padding-left: 1em;
+          .logo_name {
+            margin-left: 0.2em;
+          }
+        }
+        .mobile_menu {
+          padding: 0;
+          li {
+            padding: 0 0.1em;
+          }
+        }
+      }
     }
   }
 }
 @media screen and (max-width: 768px) {
   .header {
     nav {
-      .site_header {
-        padding: 0;
+      .el-row {
         .pc_menu {
           display: none;
         }
         .mobile_menu {
-          padding: 0 0.3em;
-          font-size: 30px;
           .mobile_btn {
-            font-size: 1.5em;
-            padding: 0 0.3em;
+            display: flex;
+            @include fontStart(2.3em);
           }
           .mobile_name {
             display: none;

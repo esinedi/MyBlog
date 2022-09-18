@@ -1,0 +1,45 @@
+.article {
+  padding: 15px;
+  padding-top: 25px;
+  max-width: 80%;
+  margin: 0 auto;
+  .article_background{
+    @include border-black;
+    max-width: 79%;
+    margin: 0 auto;
+    padding: 10px 15px;
+    padding-bottom: 15px;
+    box-shadow: 5px 5px $mainColor;
+    .search_select {
+      .select_main{
+        margin-top: 25px;
+      }
+      .search_num{
+        display: block;
+        margin-top: 15px;
+        font-size: 12px;
+      }
+    }
+    .arts{
+      padding-top: 1em;
+      .el-pagination{
+        justify-content: center;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1450px) {
+  .article {
+    max-width: 100%;
+    .article_background{
+      max-width: 100%;
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .article {
+    padding-top: 15px;
+  }
+}

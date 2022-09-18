@@ -1,0 +1,24 @@
+.notice {
+  @include border-black;
+  .notice_title {
+    width: 100%;
+    padding-bottom: 0.6em;
+    margin-bottom: 0.2em;
+    border-bottom: 1px solid rgba($color: #000000, $alpha: 0.1);
+    @include fontStart(1.5em);
+    @include flex-row;
+    @include flex-aCenter;
+    .title_span {
+      margin-left: 0.5em;
+      @include fontStart(0.8em);
+    }
+  }
+  .notice_content {
+    line-height: 2em;
+    margin-bottom: 23px;
+    @include fontStart(1em);
+    .name {
+      float: right;
+    }
+  }
+}

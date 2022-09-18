@@ -1,10 +1,46 @@
-@mixin fixed-center {
+// flex 布局
+@mixin flex-row {
   display: flex;
   flex-direction: row;
+}
+
+@mixin flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+@mixin flex-aCenter {
+  align-items: center;
+}
+
+@mixin flex-center {
   justify-content: center;
   align-items: center;
 }
 
+@mixin flex-jBetween {
+  justify-content: space-between;
+}
+
+// 边框
+@mixin border-black {
+  width: 100%;
+  background-color: white;
+  box-shadow: 5px 5px 3px rgba($color: #000000, $alpha: 0.2);
+  padding: 15px;
+  box-sizing: border-box;
+  border: 4px solid black;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+@mixin borderSmall-black {
+  box-sizing: border-box;
+  border: 3px solid black;
+  border-radius: 6px;
+}
+
+// 动画效果
 @mixin wh-transition {
   box-sizing: border-box;
   transition-property: width, height, margin;
@@ -34,6 +70,19 @@
   z-index: 6;
 }
 
+// 字体
+@mixin fontStart($size: 1em, $weight: 400) {
+  font-size: $size;
+  font-weight: $weight;
+}
+
+// 标签提示
+@mixin labelSize{
+  display: block;
+  width: 60px;
+  margin-right: 15px;
+}
+
 // 颜色
 $mainColor: #6889ef;
 
@@ -43,4 +92,11 @@ $mainColor: #6889ef;
 
 .med_size {
   font-size: 26px;
+}
+
+/* 杂项样式 */
+/* 头部颜色 */
+.pc_menu_a_active {
+  text-shadow: 0 0 5px #6889ef, 0 0 10px #6889ef, 0 0 15px #6889ef,
+    0 0 40px #6889ef, 0 0 70px #6889ef;
 }

@@ -1,0 +1,28 @@
+.main_top{
+  padding-top: 0.5em;
+  @include flex-row;
+  @include flex-aCenter;
+  @include flex-jBetween;
+  .title{
+    @include fontStart(2em);
+    @include flex-row;
+    @include flex-aCenter;
+    .el-icon{
+      margin-right: 5px;
+    }
+  }
+  .search{
+    @include flex-row;
+    margin-top: 5px;
+    .el-input{
+      margin-right: 10px;
+    }
+  }
+}
+@media screen and (max-width: 768px) {
+  .main_top{
+    .title{
+      @include fontStart(1.5em);
+    }
+  }
+}

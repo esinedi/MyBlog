@@ -1,0 +1,64 @@
+.artItem {
+  @include borderSmall-black;
+  @include flex-row;
+  padding: 10px;
+  margin-bottom: 1.5em;
+  cursor: pointer;
+  transition: all ease 0.5s;
+  box-shadow: 4px 4px rgba($color: #000000, $alpha: 0.2);
+  .item_img {
+    width: 100px;
+    height: 100px;
+    border: 4px solid rgba($color: #000000, $alpha: 0.2);
+    border-radius: 8px;
+    overflow: hidden;
+    margin-right: 15px;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+  .item_msg {
+    flex: 1;
+    @include flex-column;
+    position: relative;
+    .item_time {
+      position: absolute;
+      top: 0;
+      right: 0;
+      @include fontStart();
+    }
+    .item_title {
+      @include fontStart(1.5em, bold);
+      line-height: 1.5em;
+    }
+    .item_section {
+      @include fontStart(0.8em, bold);
+      margin-top: 5px;
+    }
+    .item_author {
+      @include flex-row;
+      @include flex-aCenter;
+      margin-top: auto;
+      img {
+        width: 30px;
+        height: 30px;
+        border-radius: 100%;
+        margin-right: 5px;
+      }
+      > span {
+        font-size: 0.9em;
+        margin-right: 1em;
+      }
+      .el-tag {
+        margin-right: 0.5em;
+      }
+    }
+  }
+}
+.artItem:hover {
+  margin-top: -0.5em;
+  margin-bottom: 2em;
+  box-shadow: 4px 4px $mainColor;
+}

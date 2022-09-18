@@ -29,23 +29,23 @@ const { xPos, yPos } = useMousePointer( x, y, 25)
           <transition>
             <div class="login_box">
               <el-row>
-                <el-col :span="6">
+                <el-col :span="7">
                   <p class="bg_size">登录</p>
                 </el-col>
               </el-row>
               <el-row>
-                <el-col :span="6">
+                <el-col :span="7">
                   <p class="med_size">账号：</p>
                 </el-col>
-                <el-col :span="18">
+                <el-col :span="17">
                   <el-input v-model="user.username" placeholder="请输入您的账号" />
                 </el-col>
               </el-row>
               <el-row>
-                <el-col :span="6">
+                <el-col :span="7">
                   <p class="med_size">密码：</p>
                 </el-col>
-                <el-col :span="18">
+                <el-col :span="17">
                   <el-input v-model="user.pwd" placeholder="请输入您的密码" type="password" show-password />
                 </el-col>
               </el-row>

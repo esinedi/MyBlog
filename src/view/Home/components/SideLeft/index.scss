@@ -1,0 +1,22 @@
+.sideLeft {
+  background-color: white;
+  width: 100%;
+  padding: 15px;
+  padding-bottom: 0px;
+  @include border-black;
+  .topLeft {
+    padding: 0.5em;
+    padding-bottom: 1.3em;
+    border-bottom: 1px solid rgba($color: #000000, $alpha: 0.1);
+    @include flex-row;
+    @include flex-jBetween;
+    align-items: center;
+    .title {
+      @include fontStart(1.5em, bold);
+      letter-spacing: 1px;
+    }
+  }
+  .arts {
+    padding-top: 1.5em;
+  }
+}
