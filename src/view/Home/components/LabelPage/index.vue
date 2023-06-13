@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { inject, toRaw, reactive } from 'vue'
-const tagData = inject('tagData')
+const tagData:any = inject('tagData')
 </script>
 
 <template>

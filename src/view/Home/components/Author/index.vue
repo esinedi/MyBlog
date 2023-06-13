@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { inject } from 'vue'
 
-const author = inject('userData')
+const author:any = inject('userData')
 </script>
 
 <template>

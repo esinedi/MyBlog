@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { inject } from 'vue'
 import ArtItem from '@/components/ArtItem/index.vue'
-const data = inject('article')
+const data:any = inject('article')
 </script>
 
 <template>

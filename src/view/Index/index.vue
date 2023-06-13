@@ -6,7 +6,7 @@ import { userDetails } from '@/api/user'
 // 导入文章数据接口
 import { getArticleTag, getArticle} from '@/api/article'
 // 导入自定义 hooks 功能
-import { useTimeSort } from '@/hooks/useTime.ts'
+import { useTimeSort } from '@/hooks/useTime'
 
 // 初始化参数
 // 用户
@@ -31,15 +31,15 @@ const getListData = async() => {
 }
 
 // 设置字体参数
-const tagEdit = (data: Array) => {
-  const tagNum = data.reduce((a, i) => {
+const tagEdit = (data: Array<any>) => {
+  const tagNum = data.reduce((a: any, i: any) => {
     return a + i.tagNum
   }, 0)
   const length = data.length
   data.forEach(item => {
-    if((item.tagNum*length/tagNum).toFixed(2) <= 0.80) {
+    if(Number((item.tagNum*length/tagNum).toFixed(2)) <= 0.80) {
       item.scale = 0.80
-    }else if ((item.tagNum*length/tagNum).toFixed(2) >= 1.50) {
+    }else if (Number((item.tagNum*length/tagNum).toFixed(2)) >= 1.50) {
       item.scale = 1.50
     }else {
       item.scale = Number((item.tagNum*length/tagNum).toFixed(2))

@@ -8,7 +8,7 @@ import { getNewArticle } from '@/api/article'
 // 导入 vue 功能
 import { ref, toRaw, onMounted, provide } from 'vue'
 // 导入自定义 hooks 功能
-import { useTimeSort } from '@/hooks/useTime.ts'
+import { useTimeSort } from '@/hooks/useTime'
 
 // 文章数据
 const getArticleList = ref([{}])

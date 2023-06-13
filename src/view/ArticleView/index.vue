@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { inject, ref, toRaw, watch } from 'vue'
-import { useTimeTrans } from '@/hooks/useTime.ts'
+// import { useTimeTrans } from '@/hooks/useTime.ts'
 import Top from './components/Top/index.vue'
 import TimeSelect from './components/TimeSelect/index.vue'
 import TagsSelect from './components/TagsSelect/index.vue'
@@ -8,17 +8,18 @@ import ArtItem from '@/components/ArtItem/index.vue'
 
 // 获取数据
 const showPage = ref(1)
-const listData = inject('listData')
+const listData:any = inject('listData')
 // 原始数据
 const listDatas = ref([])
 
-watch(listData, (newVal, oldVal) => {
+watch(<Array<Object>>listData, (newVal, oldVal) => {
+  console.log(listDatas)
   // 深拷贝数据
-  listDatas.value.length === 0 ? listDatas.value = JSON.parse(JSON.stringify(listData.value)) : listDatas.value = listDatas.value
+  listDatas.value.length === 0 ? listDatas.value = JSON.parse(JSON.stringify(newVal)) : listDatas.value = listDatas.value
 })
 
 // 判断搜索
-const searchInput = (val) => {
+const searchInput = (val:any) => {
   (val === '') ?
     listData.value = listDatas.value :
     listData.value = listData.value.filter(item => item.title.indexOf(val) !== -1)
@@ -26,10 +27,10 @@ const searchInput = (val) => {
 
 // 时间范围
 // 判断数据
-const timeRange = (val) => {
+const timeRange = (val:any) => {
   (JSON.stringify(val) == '{}') ? 
     listData.value = listDatas.value : 
-    listData.value = listData.value.filter(item => (new Date(item.date) >= val.dateStart && new Date(item.date) <= val.dateEnd))
+    listData.value = listData.value.filter((item:any) => (new Date(item.date) >= val.dateStart && new Date(item.date) <= val.dateEnd))
 }
 </script>
 

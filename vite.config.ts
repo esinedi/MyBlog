@@ -19,5 +19,5 @@ export default defineConfig({
         additionalData:'@import "./src/assets/style/main.scss";'
       }
     }
-  }
+  },
 })

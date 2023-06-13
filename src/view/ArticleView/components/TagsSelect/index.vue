@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref, inject } from 'vue'
 
-const tagData = inject('tagData')
+const tagData:any = inject('tagData')
 const getListData = inject('getListData')
 
 const checkTag = (e) => {

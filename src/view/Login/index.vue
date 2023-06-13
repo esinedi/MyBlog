@@ -4,8 +4,8 @@ import { userLogin } from '@/api/user'
 // 导入功能
 import { ref, Ref, toRaw } from 'vue'
 // 导入方法
-import { useMousePointer } from '@/hooks/useMouseAdk.ts'
-import { useLoginprop } from '@/hooks/login.ts'
+import { useMousePointer } from '@/hooks/useMouseAdk'
+import { useLoginprop } from '@/hooks/login'
 const { x, y } = useLoginprop()
 const user = ref({
   username: '',
